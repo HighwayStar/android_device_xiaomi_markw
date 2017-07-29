@@ -18,12 +18,6 @@ LOCAL_PATH := device/xiaomi/markw
 
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
-# Hack for build
-$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
-
-# Disable build webviewchromium 
-# PRODUCT_PREBUILT_WEBVIEWCHROMIUM := yes
-
 # Deodex
 DISABLE_DEXPREOPT := true
 
@@ -64,8 +58,8 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-TARGET_KERNEL_CONFIG := new_mokee_markw_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/android_kernel_xiaomi_msm8953
+TARGET_KERNEL_CONFIG := markw_defconfig
+TARGET_KERNEL_SOURCE := kernel/xiaomi/markw
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_ARCH := arm64
@@ -124,12 +118,6 @@ TARGET_TS_MAKEUP := true
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
-
-# Hardware tunables
-BOARD_HARDWARE_CLASS := \
-    hardware/mokee/mkhw \
-    device/xiaomi/markw/mkhw
-BOARD_USES_MOKEE_HARDWARE := true
 
 # CNE / DPM
 BOARD_USES_QCNE := true
