@@ -263,6 +263,8 @@ PRODUCT_COPY_FILES += \
 
 # SnapCamera
 PRODUCT_PACKAGES += \
+    camera.msm8953 \
+    libmm-qcamera \
     Snap
 
 # SPN
